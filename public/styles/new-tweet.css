@@ -18,5 +18,5 @@ form textarea{
   border-color: rgba(0, 0, 0, 0.644);
   margin: 5px 0px 8px;
   resize: none;
-  font-weight: bold;
+  font-weight: bolder ;
 }
