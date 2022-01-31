@@ -22,6 +22,11 @@ body {
   
 }
 
+.mainTheme{
+  background-color: #4056A1;
+  color: #FFFFFF;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

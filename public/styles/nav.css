@@ -1,21 +1,19 @@
 nav{
   height: 120px;
-  background-color: #4056A1 ;
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
-  color:#FFFFFF;
   z-index: 10;
 }
 
-nav #title{ 
+nav .title{ 
   font-family: Bungee;
   font-size: 1.5em;
   margin-left: 1.5em;
   margin-top: 1.4em;
 }
 
-#writeNew{
+.writeNew{
   margin-right: 1.5em;
   margin-top: 2em;
   display: flex;
@@ -23,6 +21,6 @@ nav #title{
   align-items: center;
 }
 
-#writeNew i{
+.writeNew i{
   color: #e73d26;
 }

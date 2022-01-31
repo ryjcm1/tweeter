@@ -1,0 +1,20 @@
+.tweet-submit{
+  display: flex;
+  justify-content: space-between;
+  font-family: Bungee;
+}
+
+.tweet-submit button{
+  border: 0.5px solid black;
+}
+
+form textarea{
+  height: 50px;
+  width: 100%;
+  background: transparent;
+  outline: 0;
+  border-width: 0 0 4px;
+  border-color: rgba(0, 0, 0, 0.644);
+  margin: 5px 0px 8px;
+  font-size: 80%;
+}
