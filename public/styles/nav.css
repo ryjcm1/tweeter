@@ -1,26 +1,28 @@
 nav{
   height: 120px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
-  z-index: 10;
+  padding: 0 1.5em;
+}
+
+nav > div{
+  margin-top: 1.7em;
 }
 
 nav .title{ 
   font-family: Bungee;
   font-size: 1.5em;
-  margin-left: 1.5em;
-  margin-top: 1.4em;
 }
 
-.writeNew{
-  margin-right: 1.5em;
-  margin-top: 2em;
+.newTweetButton {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.writeNew i{
+.newTweetButton  i{
   color: #e73d26;
 }
+
