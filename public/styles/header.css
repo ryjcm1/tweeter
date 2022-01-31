@@ -1,0 +1,13 @@
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d79923;
+  color: white;
+  height: 400px;
+  width: 100%;
+}
+
+header h2{
+  margin-top: 0;
+}
