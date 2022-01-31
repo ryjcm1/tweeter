@@ -6,6 +6,7 @@
 
 .tweet-submit button{
   border: 0.5px solid black;
+  cursor: pointer;
 }
 
 form textarea{
@@ -18,4 +19,6 @@ form textarea{
   margin: 5px 0px 8px;
   font-size: 80%;
   resize: none;
+  font-weight: bold;
+
 }
