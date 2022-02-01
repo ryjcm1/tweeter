@@ -8,7 +8,7 @@
 $(document).ready(function() {
 
   const createTweetElement  = function(data){
-    const tweet = $(`<article class="tweet">
+    const $tweet = $(`<article class="tweet">
     <div class="author">
       <div class="profile">
         <img src=${data.user.avatars} alt="headshot">
@@ -37,7 +37,7 @@ $(document).ready(function() {
     
     </article>`);
   
-    return tweet;
+    return $tweet;
   }
 
 
@@ -48,7 +48,7 @@ $(document).ready(function() {
 
     for(let tweet of tweets){
       let newTweetArticle = createTweetElement(tweet);
-      $('#tweets-container').prepend(newTweetArticle);
+      $('.tweets-container').prepend(newTweetArticle);
     }
   }
 
@@ -82,9 +82,6 @@ $(document).ready(function() {
   };
 
 
-
-
-
   $('#tweet-form').on("submit", function(event){
     event.preventDefault();
     
@@ -96,16 +93,16 @@ $(document).ready(function() {
     //basic tweet validations
     if(textAreaValue === ""){
       textArea.addClass('error');
-      errorDisplay.show()
       errorMessage.html("Tweet cannot be empty.")
+      errorDisplay.slideDown()
 
       // return alert("Tweet cannot be empty!");
       return;
       
     }else if(textAreaValue.length > 140){
       textArea.addClass('error');
-      errorDisplay.show()
       errorMessage.html("Tweet cannot exceed 140 characters.")
+      errorDisplay.slideDown()
       return;
     }
 
@@ -115,8 +112,8 @@ $(document).ready(function() {
     $.post("/tweets", message)
     .done(()=>{
       textArea.removeClass("error")
-      errorDisplay.hide()
-      textArea.val(""); //clears textarea
+      errorDisplay.slideUp()
+      // textArea.val(""); //clears textarea
       console.log("tweeted message: ", message)
       loadTweets("last");
       // loadTweets();

@@ -1,3 +1,7 @@
+.tweets-container{
+  box-sizing: border-box;
+  margin-top: 2em;
+}
 
 .tweet{
   box-sizing: content-box;
