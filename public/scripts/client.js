@@ -92,7 +92,6 @@ $(document).ready(function() {
 
     //basic tweet validations
     if(textAreaValue === ""){
-      textArea.addClass('error');
       errorMessage.html("Tweet cannot be empty.")
       errorDisplay.slideDown()
 
@@ -100,7 +99,6 @@ $(document).ready(function() {
       return;
       
     }else if(textAreaValue.length > 140){
-      textArea.addClass('error');
       errorMessage.html("Tweet cannot exceed 140 characters.")
       errorDisplay.slideDown()
       return;
@@ -111,8 +109,7 @@ $(document).ready(function() {
     //post with simple success and failure confirmation
     $.post("/tweets", message)
     .done(()=>{
-      textArea.removeClass("error")
-      errorDisplay.slideUp()
+      errorDisplay.hide()
       // textArea.val(""); //clears textarea
       console.log("tweeted message: ", message)
       loadTweets("last");
