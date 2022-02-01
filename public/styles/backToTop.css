@@ -9,6 +9,7 @@
   bottom: 1%;
   right: 1%;
   cursor: pointer;
+  display: none;
 }
 
 #backToTop i{
