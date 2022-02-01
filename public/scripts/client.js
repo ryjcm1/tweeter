@@ -20,7 +20,7 @@ $(document).ready(function() {
     </div>
     
     <div class="message">
-      <p>${data.content.text}</p>
+      <p>${escape(data.content.text)}</p>
     </div>
     
     <div class="message-information">
@@ -72,6 +72,14 @@ $(document).ready(function() {
     }
 
   }
+
+
+  //prevents untrusted text
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
 
 
