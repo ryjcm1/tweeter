@@ -114,6 +114,7 @@ $(document).ready(function() {
     .done(()=>{
       errorDisplay.hide()
       // textArea.val(""); //clears textarea
+      // $(".counter").html("140");//reseting the character counter
       console.log("tweeted message: ", message)
       loadTweets("last");
       // loadTweets();

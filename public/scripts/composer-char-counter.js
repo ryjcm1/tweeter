@@ -20,20 +20,22 @@ $(document).ready(function() {
 
   //scroll to top and display form and focuses on the textarea
   $("#backToTop").on("click", function(){
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    const form = $(".new-tweet");
-    const textArea = $("#tweet-text");
-    form.slideDown("slow", () => {
+    $('html, body').animate({ scrollTop: 0 }, ()=> {
+      const form = $(".new-tweet");
+      const textArea = $("#tweet-text");
+      
+      form.slideDown();
       textArea.focus();       
+
     });
+
   })
 
 
 
   //toggles backToTopButton visibility on scroll
   $(window).scroll(function(){
-    // console.log(typeof window.scrollY)
     const backToTopBtn =  $("#backToTop");
 
     if(window.scrollY === 0){
