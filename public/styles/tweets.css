@@ -12,10 +12,28 @@
   padding: 1em;
   display: flex;
   justify-content: space-between;
+  align-content: center;
+  height: 40px;
+}
+
+.profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile span{
+  font-weight:normal;
+}
+
+.profile img{
+  height: 40px;
+  margin-right: 10px;
 }
 
 .handle{
   color: rgba(141, 141, 141, 0.637);
+  align-self: center;
 }
 
 .message{
