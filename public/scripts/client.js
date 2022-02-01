@@ -35,10 +35,9 @@ $(document).ready(function() {
       </div>
     </div>
     
-    </article>`)
+    </article>`);
   
     return tweet;
-  
   }
 
 
@@ -48,22 +47,32 @@ $(document).ready(function() {
     // takes return value and appends it to the tweets container
 
     for(let tweet of tweets){
-      let newTweetArticle = createTweetElement(tweet)
+      let newTweetArticle = createTweetElement(tweet);
       $('#tweets-container').prepend(newTweetArticle);
     }
   }
 
 
+  //loads tweet dependent on a string query value
+  const loadTweets = function(query){
+    if(query === "all"){
+      $.ajax('/tweets', { method: 'GET' })
+      .then(function (tweets) {
+        console.log('Success: ', tweets);
+        renderTweets(tweets);
+    })}
 
-  const loadTweets = function(){
-    $.ajax('/tweets', { method: 'GET' })
-    .then(function (tweets) {
-      console.log('Success: ', tweets);
-      renderTweets(tweets);
+    if(query === "last"){
+      $.ajax('/tweets', { method: 'GET' })
+      .then(function (tweets) {
+        let latestTweet = tweets[tweets.length - 1];
+        console.log('Latest Tweet: ', latestTweet);
+        renderTweets([latestTweet]);
+    })
+    }
 
-  })}
+  }
 
-  
 
 
   $('#tweet-form').on("submit", function(event){
@@ -87,6 +96,7 @@ $(document).ready(function() {
     .done(()=>{
       textArea.val(""); //clears textarea
       console.log("tweeted message: ", message)
+      loadTweets("last");
       // loadTweets();
     })
     .fail(()=>{
@@ -96,8 +106,8 @@ $(document).ready(function() {
 
 
 
-  //message load when the app runs
-  loadTweets();
+  //message load all tweets in the database when the app runs
+  loadTweets("all");
   
 })
 
