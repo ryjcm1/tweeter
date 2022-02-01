@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // --- our code goes here ---
 
-  $("#tweet-text").keyup(function(){
+  $("#tweet-text").on("input",function(){
     let charCount = 140 - this.value.length;
     let charCountDisplay = $(this).parent().children(".tweet-submit").children(".counter");
 
