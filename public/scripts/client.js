@@ -127,8 +127,11 @@ $(document).ready(function() {
 
   //toggles form and focuses on textarea dependent on form's visibility
   $(".newTweetButton").on("click", function(){
-    const form = $(this).parent("nav").parent("body").children("main").children(".new-tweet");
-    const textArea = form.children("#tweet-form").children("#tweet-text");
+    // const form = $(this).parent("nav").parent("body").children("main").children(".new-tweet");
+    // const textArea = form.children("#tweet-form").children("#tweet-text");
+
+    const form = $(".new-tweet");
+    const textArea = $("#tweet-text");
 
     if(form.is(":visible")){
       form.slideUp();

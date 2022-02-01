@@ -23,6 +23,11 @@ body {
   
 }
 
+
+/*
+* Additional CSS can be defined below or in other CSS files, as per instructions
+*/
+
 .mainTheme{
   background-color: #4056A1;
   color: #FFFFFF;
@@ -37,8 +42,11 @@ body {
   font-weight: bold;
 }
 
+@media only screen and (min-width: 1024px) {
+  .tweeter-display{
+    display: flex;
+    /* align-items: center; */
+  }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
 
+}

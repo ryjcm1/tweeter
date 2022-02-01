@@ -7,6 +7,8 @@ nav{
   position: fixed;
   top: 0;
   z-index: 100;
+  background-color: #d79923;
+  background-image: url("../images/header-background.png");
 
 }
 
@@ -17,6 +19,7 @@ nav > div{
 nav .title{ 
   font-family: Bungee;
   font-size: 1.5em;
+  color: #FFFFFF;
 }
 
 .newTweetButton {
@@ -24,6 +27,7 @@ nav .title{
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  color: #FFFFFF;
 
 }
 
@@ -31,3 +35,12 @@ nav .title{
   color: #e73d26;
 }
 
+
+@media only screen and (min-width: 1024px) {
+  nav{
+    background-color: #4056A1;
+    background-image: none;
+  }
+
+
+}

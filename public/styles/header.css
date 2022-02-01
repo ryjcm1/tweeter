@@ -13,3 +13,15 @@ header{
 header h2{
   margin-top: 0;
 }
+
+@media only screen and (min-width: 1024px) {
+  header{
+    width: 45%;
+    margin: 10em 3em 2em 2em;
+    height: 450px;
+    padding-top: 2em;
+
+  }
+
+
+}

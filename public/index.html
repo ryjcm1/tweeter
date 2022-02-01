@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css">
     <link rel="stylesheet" href="/styles/backToTop.css" type="text/css">
 
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/cce541a7f3.js" crossorigin="anonymous"></script>
@@ -32,12 +33,12 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
     <button id="backToTop">
       <i class="fas fa-angle-double-up"></i>
     </button>
+    <!-- Top nav bar (fixed) -->
 
-    <nav class="mainTheme">
+    <nav>
       <div class="logo">
         <span class="title">tweeter</span>
       </div>
@@ -47,75 +48,49 @@
       </div>
     </nav>
 
-    <header>
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Your Name</h2>
-      </div>
+    <div class="tweeter-display">
 
-    </header>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form id="tweet-form">
-
-          <div class="error-message danger">
-            <i class="fas fa-exclamation-triangle"></i>
-            <span>default error message.</span>
-          </div>
-
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-
-          <div class="tweet-submit">
-            <button class="mainTheme" type="submit">Tweet</button>
-            <output class="counter" name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-
-        </form>
-      </section>
-      
-      <div class="tweets-container">
-        <!-- <article class="tweet">
-          <div class="author">
-            <div class="profile">
-              <img src="" alt="headshot">
-              <span>Rhoda Jacobs</span>
-            </div>
-            <div class="handle">
-              <span>@MrsJacobs</span>
-            </div>
-          </div>
+      <header>
+        <div>
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div>
+            <h2>Your Name</h2>
+        </div>
   
-          <div class="message">
-            <p>Hello World!</p>
-          </div>
+      </header>
   
-          <div class="message-information">
-            <div class="date">
-              <span>10 days ago</span>
-            </div>
-            
-            <div class="social">
-              <i class="fas fa-flag"></i>
-              <i class="fas fa-retweet"></i>
-              <i class="fas fa-heart"></i>
-            </div>
-          </div>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form id="tweet-form">
   
-        </article> -->
-
-
-      </div>
-
-
-
-
-    </main>
+            <div class="error-message danger">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>default error message.</span>
+            </div>
+  
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+  
+            <div class="tweet-submit">
+              <button class="mainTheme" type="submit">Tweet</button>
+              <output class="counter" name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+  
+          </form>
+        </section>
+        
+        <div class="tweets-container">
+          <!-- to be populated with tweets on load -->
+        </div>
+  
+  
+  
+  
+      </main>
+    </div>
   </body>
 </html>
