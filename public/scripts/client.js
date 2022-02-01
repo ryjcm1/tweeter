@@ -83,18 +83,30 @@ $(document).ready(function() {
 
 
 
+
+
   $('#tweet-form').on("submit", function(event){
     event.preventDefault();
     
     const textArea = $(this).children("#tweet-text");
     const textAreaValue = $(this).children("#tweet-text").val();
+    const errorDisplay =  $(this).children(".error-message");
+    const errorMessage = $(this).children(".error-message").children("span");
 
     //basic tweet validations
     if(textAreaValue === ""){
-      return alert("Tweet cannot be empty!");
+      textArea.addClass('error');
+      errorDisplay.show()
+      errorMessage.html("Tweet cannot be empty.")
+
+      // return alert("Tweet cannot be empty!");
+      return;
       
     }else if(textAreaValue.length > 140){
-      return alert("Tweet cannot exceed 140 characters!");
+      textArea.addClass('error');
+      errorDisplay.show()
+      errorMessage.html("Tweet cannot exceed 140 characters.")
+      return;
     }
 
     const message = $(this).serialize();
@@ -102,6 +114,8 @@ $(document).ready(function() {
     //post with simple success and failure confirmation
     $.post("/tweets", message)
     .done(()=>{
+      textArea.removeClass("error")
+      errorDisplay.hide()
       textArea.val(""); //clears textarea
       console.log("tweeted message: ", message)
       loadTweets("last");
