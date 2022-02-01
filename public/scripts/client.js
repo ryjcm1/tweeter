@@ -42,17 +42,24 @@ $(document).ready(function() {
   }
 
 
+  const renderTweets = function(tweets) {
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+
+    for(let tweet of tweets){
+      let newTweetArticle = createTweetElement(tweet)
+      $('#tweets-container').append(newTweetArticle);
+    }
+  }
+
 
 
   const loadTweets = function(){
     $.ajax('/tweets', { method: 'GET' })
     .then(function (tweets) {
       console.log('Success: ', tweets);
-      
-      for(let tweet of tweets){
-        let newTweetArticle = createTweetElement(tweet)
-        $('#tweets-container').append(newTweetArticle);
-      }
+      renderTweets(tweets);
 
   })}
 
