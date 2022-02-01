@@ -121,6 +121,21 @@ $(document).ready(function() {
   })
 
 
+  //toggles form and focuses on textarea dependent on form's visibility
+  $(".newTweetButton").on("click", function(){
+    const form = $(this).parent("nav").parent("body").children("main").children(".new-tweet");
+    const textArea = form.children("#tweet-text");
+
+    if(form.is(":visible")){
+      form.slideUp();
+    }else{
+      form.slideDown();
+      textArea.focus();
+    }
+  })
+
+
+
 
   //message load all tweets in the database when the app runs
   loadTweets("all");
