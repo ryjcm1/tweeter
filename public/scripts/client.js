@@ -41,6 +41,7 @@ $(document).ready(function() {
   }
 
 
+
   const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
@@ -51,6 +52,7 @@ $(document).ready(function() {
       $('.tweets-container').prepend(newTweetArticle);
     }
   }
+
 
 
   //loads tweet dependent on a string query value
@@ -74,6 +76,7 @@ $(document).ready(function() {
   }
 
 
+
   //prevents untrusted text
   const escape = function (str) {
     let div = document.createElement("div");
@@ -82,10 +85,10 @@ $(document).ready(function() {
   };
 
 
+
   $('#tweet-form').on("submit", function(event){
     event.preventDefault();
-    
-    const textArea = $(this).children("#tweet-text");
+    // const textArea = $(this).children("#tweet-text");
     const textAreaValue = $(this).children("#tweet-text").val();
     const errorDisplay =  $(this).children(".error-message");
     const errorMessage = $(this).children(".error-message").children("span");
@@ -120,21 +123,21 @@ $(document).ready(function() {
     })
   })
 
+  
 
   //toggles form and focuses on textarea dependent on form's visibility
   $(".newTweetButton").on("click", function(){
     const form = $(this).parent("nav").parent("body").children("main").children(".new-tweet");
-    const textArea = form.children("#tweet-text");
+    const textArea = form.children("#tweet-form").children("#tweet-text");
 
     if(form.is(":visible")){
       form.slideUp();
     }else{
-      form.slideDown();
-      textArea.focus();
+      form.slideDown("slow", () => {
+        textArea.focus();       
+      });
     }
   })
-
-
 
 
   //message load all tweets in the database when the app runs
