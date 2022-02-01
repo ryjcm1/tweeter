@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     for(let tweet of tweets){
       let newTweetArticle = createTweetElement(tweet)
-      $('#tweets-container').append(newTweetArticle);
+      $('#tweets-container').prepend(newTweetArticle);
     }
   }
 
@@ -68,18 +68,35 @@ $(document).ready(function() {
 
   $('#tweet-form').on("submit", function(event){
     event.preventDefault();
-    // console.log("submitted: ", $(this).serialize())
+    
+    const textArea = $(this).children("#tweet-text");
+    const textAreaValue = $(this).children("#tweet-text").val();
+
+    //basic tweet validations
+    if(textAreaValue === ""){
+      return alert("Tweet cannot be empty!");
+      
+    }else if(textAreaValue.length > 140){
+      return alert("Tweet cannot exceed 140 characters!");
+    }
+
     const message = $(this).serialize();
 
+    //post with simple success and failure confirmation
     $.post("/tweets", message)
     .done(()=>{
+      textArea.val(""); //clears textarea
       console.log("tweeted message: ", message)
+      // loadTweets();
     })
     .fail(()=>{
       console.log("tweet failed to send.")
     })
   })
 
+
+
+  //message load when the app runs
   loadTweets();
   
 })
