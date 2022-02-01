@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css">
-
-
+    <link rel="stylesheet" href="/styles/backToTop.css" type="text/css">
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -34,6 +33,10 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
+    <button id="backToTop">
+      <i class="fas fa-angle-double-up"></i>
+    </button>
+
     <nav class="mainTheme">
       <div class="logo">
         <span class="title">tweeter</span>
@@ -60,16 +63,20 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form id="tweet-form">
+
           <div class="error-message danger">
             <i class="fas fa-exclamation-triangle"></i>
             <span>default error message.</span>
           </div>
+
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
+
           <div class="tweet-submit">
             <button class="mainTheme" type="submit">Tweet</button>
             <output class="counter" name="counter" class="counter" for="tweet-text">140</output>
           </div>
+
         </form>
       </section>
       

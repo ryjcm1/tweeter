@@ -1,0 +1,31 @@
+#backToTop{
+  position: fixed;
+  background: rgb(253, 34, 34);
+  background-image: url("../images/header-background.png");
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: none;
+  bottom: 1%;
+  right: 1%;
+  cursor: pointer;
+}
+
+#backToTop i{
+  
+  font-size: 1.3em;
+  color: #FFFFFF;
+}
+
+
+#backToTop:hover{
+  background: rgb(216, 29, 29);
+  background-image: url("../images/header-background.png");
+
+
+}
+
+#backToTop:hover > i{
+  font-size: 1.4em;
+  transition: 0.2s;
+}
