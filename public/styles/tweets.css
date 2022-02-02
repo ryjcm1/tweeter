@@ -45,6 +45,7 @@
   padding-left: 0.6em;
   padding-right: 0.6em;
   font-weight: bold;
+  overflow-wrap: break-word;
 }
 
 .message-information {

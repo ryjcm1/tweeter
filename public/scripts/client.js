@@ -8,7 +8,7 @@
 
 $(() => {
 
-  //tweet dom template
+  //tweet dom element template
   const createTweetElement  = (data) => {
     const $tweet = $(`<article class="tweet">
     <div class="author">
@@ -116,7 +116,7 @@ $(() => {
 
   $('.tweet-form').on("submit", function(event) {
     event.preventDefault();
-    // const textArea = $(this).children("#tweet-text");
+    const textArea = $(this).children("#tweet-text");
     const textAreaValue = $(this).children("#tweet-text").val();
     const errorDisplay =  $(this).children(".error-message");
     const errorMessage = $(this).children(".error-message").children("span");
@@ -138,14 +138,14 @@ $(() => {
     const message = $(this).serialize();
   
     //post with simple success and failure confirmation
+    //clears textarea and resets counter on sucess
     $.post("/tweets", message)
       .done(()=>{
         errorDisplay.hide();
-        // textArea.val(""); //clears textarea
-        // $(".counter").html("140");//reseting the character counter
+        textArea.val("");
+        $(".counter").html("140");
         console.log("tweeted message: ", message);
         loadTweets("last");
-      // loadTweets();
       })
       .fail(()=>{
         console.log("tweet failed to send.");
