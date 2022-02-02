@@ -1,4 +1,4 @@
-#backToTop {
+.back-to-top {
   position: fixed;
   background: #fd2222;
   background-image: url("../images/header-background.png");
@@ -11,7 +11,7 @@
   display: none;
   cursor: pointer;
 }
-#backToTop i {
+.back-to-top i {
   font-size: 1.3em;
   color: #FFFFFF;
 }
@@ -19,11 +19,11 @@
 /*-----------------------*/
 /*    pseudo classes     */
 /*-----------------------*/
-#backToTop:hover {
+.back-to-top:hover {
   background: #d81d1d;
   background-image: url("../images/header-background.png");
 }
-#backToTop:hover i {
+.back-to-top:hover i {
   font-size: 1.4em;
   transition: 0.2s;
 }

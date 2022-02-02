@@ -1,51 +1,52 @@
 $(() => {
-  // --- our code goes here ---
 
-  $("#tweet-text").on("input",function(){
+  //sets the counter value to amount of character left out of 140
+  $("#tweet-text").on("input",function() {
     let charCount = 140 - this.value.length;
     let charCountDisplay = $(this).parent().children(".tweet-submit").children(".counter");
 
-    //adds class to change text colour when over character limit 
-    if(charCount < 0){
-      charCountDisplay.addClass("danger")
-    }else{
-      charCountDisplay.removeClass("danger")
+    //adds class to change text colour when over character limit
+    if (charCount < 0) {
+      charCountDisplay.addClass("danger");
+    } else {
+      charCountDisplay.removeClass("danger");
     }
 
-    charCountDisplay.val(charCount)
+    charCountDisplay.val(charCount);
     
-  })
+  });
 
 
 
-  //scroll to top and display form and focuses on the textarea
-  $("#backToTop").on("click", () => {
+  //scroll to top and toggles the form and focuses on the textarea
+  $(".back-to-top").on("click", (event) => {
+    event.preventDefault();
 
     $('html, body').animate({ scrollTop: 0 }, ()=> {
       const form = $(".new-tweet");
       const textArea = $("#tweet-text");
       
       form.slideDown();
-      textArea.focus();       
+      textArea.focus();
 
     });
-  })
+  });
 
 
 
   //toggles backToTopButton visibility on scroll
   $(window).scroll(() => {
-    const backToTopBtn =  $("#backToTop");
+    const backToTopBtn =  $(".back-to-top");
 
-    if(window.scrollY === 0){
+    if (window.scrollY === 0) {
       backToTopBtn.hide();
     }
 
-    if(window.scrollY > 0 && !backToTopBtn.is(":visible")){
+    if (window.scrollY > 0 && !backToTopBtn.is(":visible")) {
       backToTopBtn.show();
     }
 
-  })
+  });
  
 });
 

@@ -19,20 +19,24 @@ nav .title {
   color: #FFFFFF;
 }
 
-.newTweetButton {
+.new-tweet-button {
   display: flex;
-  flex-direction: row;
-  cursor: pointer;
-  color: #FFFFFF;
+  height: fit-content;
+  margin: auto 0;
+  border: none;
+  align-items: center;
   gap: 6px;
   position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  color: #FFFFFF;
 }
-.newTweetButton i {
+.new-tweet-button i {
   color: #e73d26;
   position: absolute;
   right: 45%;
-  bottom: 33%;
-  animation: bounce 1s linear infinite;
+  height: 0%;
+  animation: bounce 1.25s linear infinite;
 }
 
 /*-----------------------*/
@@ -40,10 +44,10 @@ nav .title {
 /*-----------------------*/
 @keyframes bounce {
   0%, 100% {
-    bottom: 25px;
+    top: 30px;
   }
   50% {
-    bottom: 30px;
+    top: 35px;
   }
 }
 /*-----------------------*/

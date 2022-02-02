@@ -1,4 +1,4 @@
-#backToTop{
+.back-to-top{
   position: fixed;
   background: rgb(253, 34, 34);
   background-image: url("../images/header-background.png");
@@ -24,7 +24,7 @@
 /*-----------------------*/
 
 
-#backToTop:hover{
+.back-to-top:hover{
   background: rgb(216, 29, 29);
   background-image: url("../images/header-background.png");
 

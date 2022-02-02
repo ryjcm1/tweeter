@@ -40,7 +40,7 @@ $(() => {
     </article>`);
 
     return $tweet;
-  }
+  };
 
 
 
@@ -49,11 +49,11 @@ $(() => {
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
 
-    for(let tweet of tweets){
+    for (let tweet of tweets) {
       let newTweetArticle = createTweetElement(tweet);
       $('.tweets-container').prepend(newTweetArticle);
     }
-  }
+  };
 
 
 
@@ -67,54 +67,54 @@ $(() => {
 
 
   //toggles form and focuses on textarea dependent on form's visibility
-  $(".newTweetButton").on("click", function(){
+  $(".new-tweet-button").on("click", function(event) {
     // const form = $(this).parent("nav").parent("body").children("main").children(".new-tweet");
     // const textArea = form.children(".tweet-form").children("#tweet-text");
-
+    event.preventDefault();
     const form = $(".new-tweet");
     const textArea = $("#tweet-text");
 
-    if(form.is(":visible")){
+    if (form.is(":visible")) {
       form.slideUp();
-    }else{
+    } else {
       form.slideDown("slow", () => {
-        textArea.focus();       
+        textArea.focus();
       });
     }
-  })
+  });
 
 
   //fetches and renders tweets dependent on query string value
   const loadTweets = (query) => {
 
-    if(query === "all"){
+    if (query === "all") {
       $.get('/tweets')
-      .then((tweets)=>{
-        console.log('All tweets: ', tweets);
-        renderTweets(tweets);
-      })
-      .fail(() => {
-        console.log("Failed to grab all tweets.")
-      })
+        .then((tweets)=>{
+          console.log('All tweets: ', tweets);
+          renderTweets(tweets);
+        })
+        .fail(() => {
+          console.log("Failed to grab all tweets.");
+        });
     }
 
-    if(query === "last"){
+    if (query === "last") {
       $.get('/tweets')
-      .then((tweets) => {
-        let latestTweet = tweets[tweets.length - 1];
-        console.log('Latest Tweet: ', latestTweet);
-        renderTweets([latestTweet]);
-      })
-      .fail(() => {
-        console.log("Failed to grab lastest tweet.")
-      })
+        .then((tweets) => {
+          let latestTweet = tweets[tweets.length - 1];
+          console.log('Latest Tweet: ', latestTweet);
+          renderTweets([latestTweet]);
+        })
+        .fail(() => {
+          console.log("Failed to grab lastest tweet.");
+        });
     }
 
-  }
+  };
 
 
 
-  $('.tweet-form').on("submit", function(event){
+  $('.tweet-form').on("submit", function(event) {
     event.preventDefault();
     // const textArea = $(this).children("#tweet-text");
     const textAreaValue = $(this).children("#tweet-text").val();
@@ -122,16 +122,16 @@ $(() => {
     const errorMessage = $(this).children(".error-message").children("span");
   
     //basic tweet validations
-    if(textAreaValue === ""){
-      errorMessage.html("Tweet cannot be empty.")
-      errorDisplay.slideDown()
+    if (textAreaValue === "") {
+      errorMessage.html("Tweet cannot be empty.");
+      errorDisplay.slideDown();
   
       // return alert("Tweet cannot be empty!");
       return;
       
-    }else if(textAreaValue.length > 140){
-      errorMessage.html("Tweet cannot exceed 140 characters.")
-      errorDisplay.slideDown()
+    } else if (textAreaValue.length > 140) {
+      errorMessage.html("Tweet cannot exceed 140 characters.");
+      errorDisplay.slideDown();
       return;
     }
   
@@ -139,22 +139,22 @@ $(() => {
   
     //post with simple success and failure confirmation
     $.post("/tweets", message)
-    .done(()=>{
-      errorDisplay.hide()
-      // textArea.val(""); //clears textarea
-      // $(".counter").html("140");//reseting the character counter
-      console.log("tweeted message: ", message)
-      loadTweets("last");
+      .done(()=>{
+        errorDisplay.hide();
+        // textArea.val(""); //clears textarea
+        // $(".counter").html("140");//reseting the character counter
+        console.log("tweeted message: ", message);
+        loadTweets("last");
       // loadTweets();
-    })
-    .fail(()=>{
-      console.log("tweet failed to send.")
-    })
-  })
+      })
+      .fail(()=>{
+        console.log("tweet failed to send.");
+      });
+  });
 
 
   //loads all tweets in the database when the app runs
   loadTweets("all");
 
-})
+});
 
