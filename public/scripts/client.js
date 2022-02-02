@@ -68,8 +68,7 @@ $(() => {
 
   //toggles form and focuses on textarea dependent on form's visibility
   $(".new-tweet-button").on("click", function(event) {
-    // const form = $(this).parent("nav").parent("body").children("main").children(".new-tweet");
-    // const textArea = form.children(".tweet-form").children("#tweet-text");
+
     event.preventDefault();
     const form = $(".new-tweet");
     const textArea = $("#tweet-text");
@@ -86,7 +85,8 @@ $(() => {
 
   //fetches and renders tweets dependent on query string value
   const loadTweets = (query) => {
-
+    
+    //renders all tweets
     if (query === "all") {
       $.get('/tweets')
         .then((tweets)=>{
@@ -98,6 +98,7 @@ $(() => {
         });
     }
 
+    //renders the latest tweet
     if (query === "last") {
       $.get('/tweets')
         .then((tweets) => {
@@ -121,24 +122,22 @@ $(() => {
     const errorDisplay =  $(this).children(".error-message");
     const errorMessage = $(this).children(".error-message").children("span");
   
-    //basic tweet validations
+    //empty tweet
     if (textAreaValue === "") {
       errorMessage.html("Tweet cannot be empty.");
-      errorDisplay.slideDown();
-  
-      // return alert("Tweet cannot be empty!");
-      return;
-      
-    } else if (textAreaValue.length > 140) {
+      return errorDisplay.slideDown();  
+    }
+
+    //tweet over character limit
+    if (textAreaValue.length > 140) {
       errorMessage.html("Tweet cannot exceed 140 characters.");
-      errorDisplay.slideDown();
-      return;
+      return errorDisplay.slideDown();
     }
   
     const message = $(this).serialize();
   
-    //post with simple success and failure confirmation
-    //clears textarea and resets counter on sucess
+    //posts tweet to server with simple success and failure confirmation
+    //clears textarea and resets counter on success
     $.post("/tweets", message)
       .done(()=>{
         errorDisplay.hide();

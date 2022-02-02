@@ -7,14 +7,15 @@
   border: 3px solid #fd2222;
 }
 
-textarea {
+#tweet-text {
   height: 60px;
   width: 100%;
   background: transparent;
   outline: 0;
   border-width: 0 0 4px;
   border-color: rgba(0, 0, 0, 0.644);
-  margin: 5px 0px;
+  margin: 2.75em 0 0;
+  padding-top: 20px;
   resize: none;
   font-weight: bolder;
 }
@@ -22,7 +23,7 @@ textarea {
 .tweet-submit {
   display: flex;
   justify-content: space-between;
-  margin: 0.5em 0;
+  margin: 0.5em 0 2.75em;
   height: 30px;
   font-family: Bungee;
 }
@@ -32,4 +33,13 @@ textarea {
   font-size: 1.2rem;
   background-color: #4056A1;
   color: #FFFFFF;
+}
+
+/*-----------------------*/
+/*    media queries      */
+/*-----------------------*/
+@media only screen and (min-width: 1024px) {
+  #tweet-text {
+    margin-top: 1.5em;
+  }
 }

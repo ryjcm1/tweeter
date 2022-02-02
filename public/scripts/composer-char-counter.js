@@ -2,7 +2,7 @@ $(() => {
 
   //sets the counter value to amount of character left out of 140
   $("#tweet-text").on("input",function() {
-    let charCount = 140 - this.value.length;
+    let charCount = 140 - $(this).val().length;
     let charCountDisplay = $(this).parent().children(".tweet-submit").children(".counter");
 
     //adds class to change text colour when over character limit
@@ -12,13 +12,13 @@ $(() => {
       charCountDisplay.removeClass("danger");
     }
 
-    charCountDisplay.val(charCount);
-    
+    //assigns counter value
+    charCountDisplay.html(charCount);
   });
 
 
 
-  //scroll to top and toggles the form and focuses on the textarea
+  //scrolls to the top and toggles the form and focuses on the textarea
   $(".back-to-top").on("click", (event) => {
     event.preventDefault();
 
@@ -42,6 +42,7 @@ $(() => {
       backToTopBtn.hide();
     }
 
+    //prevent show method when button is already visible
     if (window.scrollY > 0 && !backToTopBtn.is(":visible")) {
       backToTopBtn.show();
     }
