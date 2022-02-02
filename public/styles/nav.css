@@ -24,18 +24,32 @@ nav .title{
 
 .newTweetButton {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   cursor: pointer;
   color: #FFFFFF;
-
+  gap: 6px;
+  position: relative;
 }
 
 
 .newTweetButton  i{
   color: #e73d26;
+  position: absolute;
+  right: 45%;
+  bottom: 33%;
+  animation: bounce 1s linear infinite;
+
+  
 }
 
+@keyframes bounce {
+  0%, 100% {
+    bottom: 25px;
+  }
+  50% {
+    bottom: 30px;
+  }
+}
 
 @media only screen and (min-width: 1024px) {
   nav{
