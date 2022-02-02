@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(() => {
   // --- our code goes here ---
 
   $("#tweet-text").on("input",function(){
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 
   //scroll to top and display form and focuses on the textarea
-  $("#backToTop").on("click", function(){
+  $("#backToTop").on("click", () => {
 
     $('html, body').animate({ scrollTop: 0 }, ()=> {
       const form = $(".new-tweet");
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 
   //toggles backToTopButton visibility on scroll
-  $(window).scroll(function(){
+  $(window).scroll(() => {
     const backToTopBtn =  $("#backToTop");
 
     if(window.scrollY === 0){

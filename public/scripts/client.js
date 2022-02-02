@@ -5,8 +5,10 @@
  */
 
 
-$(document).ready(function() {
 
+$(() => {
+
+  //tweet dom template
   const createTweetElement  = (data) => {
     const $tweet = $(`<article class="tweet">
     <div class="author">
@@ -36,7 +38,7 @@ $(document).ready(function() {
     </div>
     
     </article>`);
-  
+
     return $tweet;
   }
 
@@ -55,30 +57,6 @@ $(document).ready(function() {
 
 
 
-  //loads tweet dependent on a string query value
-  const loadTweets = (query) => {
-
-    if(query === "all"){
-      $.get('/tweets')
-      .then((tweets)=>{
-        console.log('Success: ', tweets);
-        renderTweets(tweets);
-      })
-    }
-
-    if(query === "last"){
-      $.get('/tweets')
-      .then((tweets) => {
-        let latestTweet = tweets[tweets.length - 1];
-        console.log('Latest Tweet: ', latestTweet);
-        renderTweets([latestTweet]);
-      })
-    }
-
-  }
-
-
-
   //prevents untrusted text
   const escape =  (str) => {
     let div = document.createElement("div");
@@ -87,46 +65,6 @@ $(document).ready(function() {
   };
 
 
-
-  $('#tweet-form').on("submit", function(event){
-    event.preventDefault();
-    // const textArea = $(this).children("#tweet-text");
-    const textAreaValue = $(this).children("#tweet-text").val();
-    const errorDisplay =  $(this).children(".error-message");
-    const errorMessage = $(this).children(".error-message").children("span");
-
-    //basic tweet validations
-    if(textAreaValue === ""){
-      errorMessage.html("Tweet cannot be empty.")
-      errorDisplay.slideDown()
-
-      // return alert("Tweet cannot be empty!");
-      return;
-      
-    }else if(textAreaValue.length > 140){
-      errorMessage.html("Tweet cannot exceed 140 characters.")
-      errorDisplay.slideDown()
-      return;
-    }
-
-    const message = $(this).serialize();
-
-    //post with simple success and failure confirmation
-    $.post("/tweets", message)
-    .done(()=>{
-      errorDisplay.hide()
-      // textArea.val(""); //clears textarea
-      // $(".counter").html("140");//reseting the character counter
-      console.log("tweeted message: ", message)
-      loadTweets("last");
-      // loadTweets();
-    })
-    .fail(()=>{
-      console.log("tweet failed to send.")
-    })
-  })
-
-  
 
   //toggles form and focuses on textarea dependent on form's visibility
   $(".newTweetButton").on("click", function(){
@@ -146,9 +84,77 @@ $(document).ready(function() {
   })
 
 
-  //message load all tweets in the database when the app runs
-  loadTweets("all");
-  
-})
+  //fetches and renders tweets dependent on query string value
+  const loadTweets = (query) => {
 
+    if(query === "all"){
+      $.get('/tweets')
+      .then((tweets)=>{
+        console.log('All tweets: ', tweets);
+        renderTweets(tweets);
+      })
+      .fail(() => {
+        console.log("Failed to grab all tweets.")
+      })
+    }
+
+    if(query === "last"){
+      $.get('/tweets')
+      .then((tweets) => {
+        let latestTweet = tweets[tweets.length - 1];
+        console.log('Latest Tweet: ', latestTweet);
+        renderTweets([latestTweet]);
+      })
+      .fail(() => {
+        console.log("Failed to grab lastest tweet.")
+      })
+    }
+
+  }
+
+
+
+  $('#tweet-form').on("submit", function(event){
+    event.preventDefault();
+    // const textArea = $(this).children("#tweet-text");
+    const textAreaValue = $(this).children("#tweet-text").val();
+    const errorDisplay =  $(this).children(".error-message");
+    const errorMessage = $(this).children(".error-message").children("span");
+  
+    //basic tweet validations
+    if(textAreaValue === ""){
+      errorMessage.html("Tweet cannot be empty.")
+      errorDisplay.slideDown()
+  
+      // return alert("Tweet cannot be empty!");
+      return;
+      
+    }else if(textAreaValue.length > 140){
+      errorMessage.html("Tweet cannot exceed 140 characters.")
+      errorDisplay.slideDown()
+      return;
+    }
+  
+    const message = $(this).serialize();
+  
+    //post with simple success and failure confirmation
+    $.post("/tweets", message)
+    .done(()=>{
+      errorDisplay.hide()
+      // textArea.val(""); //clears textarea
+      // $(".counter").html("140");//reseting the character counter
+      console.log("tweeted message: ", message)
+      loadTweets("last");
+      // loadTweets();
+    })
+    .fail(()=>{
+      console.log("tweet failed to send.")
+    })
+  })
+
+
+  //loads all tweets in the database when the app runs
+  loadTweets("all");
+
+})
 
