@@ -1,7 +1,7 @@
 .error-message{
   font-size: 0.8em;
   padding: 12px;
-  margin-bottom: 15px;
+  margin: 15px 0 0;
   font-weight: bold;
   display: none;
   border: 3px solid rgb(253, 34, 34);
@@ -14,8 +14,8 @@
   outline: 0;
   border-width: 0 0 4px;
   border-color: rgba(0, 0, 0, 0.644);
-  margin: 2.75em 0 0;
-  padding-top: 20px;
+  margin: 2em 0 0;
+  padding-top: 10px;
   resize: none;
   font-weight: bolder ;
 }
@@ -23,7 +23,7 @@
 .tweet-submit{
   display: flex;
   justify-content: space-between;
-  margin: 0.5em 0 2.75em;
+  margin: 0.5em 0 2.5em;
   height: 30px;
   font-family: Bungee;
 
