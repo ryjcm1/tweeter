@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-  const createTweetElement  = function(data){
+  const createTweetElement  = (data) => {
     const $tweet = $(`<article class="tweet">
     <div class="author">
       <div class="profile">
@@ -56,21 +56,23 @@ $(document).ready(function() {
 
 
   //loads tweet dependent on a string query value
-  const loadTweets = function(query){
+  const loadTweets = (query) => {
+
     if(query === "all"){
-      $.ajax('/tweets', { method: 'GET' })
-      .then(function (tweets) {
+      $.get('/tweets')
+      .then((tweets)=>{
         console.log('Success: ', tweets);
         renderTweets(tweets);
-    })}
+      })
+    }
 
     if(query === "last"){
-      $.ajax('/tweets', { method: 'GET' })
-      .then(function (tweets) {
+      $.get('/tweets')
+      .then((tweets) => {
         let latestTweet = tweets[tweets.length - 1];
         console.log('Latest Tweet: ', latestTweet);
         renderTweets([latestTweet]);
-    })
+      })
     }
 
   }
@@ -78,7 +80,7 @@ $(document).ready(function() {
 
 
   //prevents untrusted text
-  const escape = function (str) {
+  const escape =  (str) => {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
