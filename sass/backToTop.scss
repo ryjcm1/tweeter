@@ -1,6 +1,6 @@
-#backToTop {
+#backToTop{
   position: fixed;
-  background: #fd2222;
+  background: rgb(253, 34, 34);
   background-image: url("../images/header-background.png");
   height: 70px;
   width: 70px;
@@ -10,20 +10,27 @@
   right: 1%;
   display: none;
   cursor: pointer;
-}
-#backToTop i {
-  font-size: 1.3em;
-  color: #FFFFFF;
+
+  i{
+    font-size: 1.3em;
+    color: #FFFFFF;
+  }
+
 }
 
+
+  /*-----------------------*/
+ /*    pseudo classes     */
 /*-----------------------*/
-/*    pseudo classes     */
-/*-----------------------*/
-#backToTop:hover {
-  background: #d81d1d;
+
+
+#backToTop:hover{
+  background: rgb(216, 29, 29);
   background-image: url("../images/header-background.png");
-}
-#backToTop:hover i {
-  font-size: 1.4em;
-  transition: 0.2s;
+
+  i{
+    font-size: 1.4em;
+    transition: 0.2s;
+  }
+
 }

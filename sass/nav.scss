@@ -1,4 +1,4 @@
-nav {
+nav{
   height: 120px;
   width: 100%;
   display: flex;
@@ -9,15 +9,20 @@ nav {
   z-index: 100;
   background-color: #d79923;
   background-image: url("../images/header-background.png");
+
+  div{
+    margin-top: 1.7em;
+
+  }
+
+  .title{
+    font-family: Bungee;
+    font-size: 1.5em;
+    color: #FFFFFF;
+  }
+
 }
-nav div {
-  margin-top: 1.7em;
-}
-nav .title {
-  font-family: Bungee;
-  font-size: 1.5em;
-  color: #FFFFFF;
-}
+
 
 .newTweetButton {
   display: flex;
@@ -26,18 +31,23 @@ nav .title {
   color: #FFFFFF;
   gap: 6px;
   position: relative;
-}
-.newTweetButton i {
-  color: #e73d26;
-  position: absolute;
-  right: 45%;
-  bottom: 33%;
-  animation: bounce 1s linear infinite;
+
+  i{
+    color: #e73d26;
+    position: absolute;
+    right: 45%;
+    bottom: 33%;
+    animation: bounce 1s linear infinite;
+  }
 }
 
+
+
+  /*-----------------------*/
+ /*      animations       */
 /*-----------------------*/
-/*      animations       */
-/*-----------------------*/
+
+
 @keyframes bounce {
   0%, 100% {
     bottom: 25px;
@@ -46,12 +56,17 @@ nav .title {
     bottom: 30px;
   }
 }
+
+
+  /*-----------------------*/
+ /*    media queries      */
 /*-----------------------*/
-/*    media queries      */
-/*-----------------------*/
+
+
 @media only screen and (min-width: 1024px) {
-  nav {
+  nav{
     background-color: #4056A1;
     background-image: none;
   }
+
 }

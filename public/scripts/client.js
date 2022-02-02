@@ -69,7 +69,7 @@ $(() => {
   //toggles form and focuses on textarea dependent on form's visibility
   $(".newTweetButton").on("click", function(){
     // const form = $(this).parent("nav").parent("body").children("main").children(".new-tweet");
-    // const textArea = form.children("#tweet-form").children("#tweet-text");
+    // const textArea = form.children(".tweet-form").children("#tweet-text");
 
     const form = $(".new-tweet");
     const textArea = $("#tweet-text");
@@ -114,7 +114,7 @@ $(() => {
 
 
 
-  $('#tweet-form').on("submit", function(event){
+  $('.tweet-form').on("submit", function(event){
     event.preventDefault();
     // const textArea = $(this).children("#tweet-text");
     const textAreaValue = $(this).children("#tweet-text").val();

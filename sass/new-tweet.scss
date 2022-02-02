@@ -1,13 +1,13 @@
-.error-message {
+.error-message{
   font-size: 0.8em;
   padding: 12px;
   margin-bottom: 15px;
   font-weight: bold;
   display: none;
-  border: 3px solid #fd2222;
+  border: 3px solid rgb(253, 34, 34);
 }
 
-textarea {
+textarea{
   height: 60px;
   width: 100%;
   background: transparent;
@@ -16,20 +16,22 @@ textarea {
   border-color: rgba(0, 0, 0, 0.644);
   margin: 5px 0px;
   resize: none;
-  font-weight: bolder;
+  font-weight: bolder ;
 }
 
-.tweet-submit {
+.tweet-submit{
   display: flex;
   justify-content: space-between;
   margin: 0.5em 0;
   height: 30px;
   font-family: Bungee;
-}
-.tweet-submit button {
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  background-color: #4056A1;
-  color: #FFFFFF;
-}
+
+  button{
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: #4056A1;
+    color: #FFFFFF;
+  }
+    
+} 

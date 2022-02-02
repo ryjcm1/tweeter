@@ -1,15 +1,22 @@
-main {
+
+main{
   width: 90%;
   margin: 0 auto;
   background: transparent;
+  
 }
 
+
+  /*-----------------------*/
+ /*    media queries      */
 /*-----------------------*/
-/*    media queries      */
-/*-----------------------*/
+
+
 @media only screen and (min-width: 1024px) {
-  main {
+  main{
     width: 55%;
     margin: 8.3em 2em 2em 3em;
   }
+
 }
+

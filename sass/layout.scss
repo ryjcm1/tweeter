@@ -6,7 +6,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,32 +13,41 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: Source Sans Pro;
   position: relative;
+  
 }
+
 
 /*
 * Additional CSS can be defined below or in other CSS files, as per instructions
 */
-.danger {
-  color: #fd2222;
+
+
+.danger{
+  color: rgb(253, 34, 34);
 }
 
-.error {
+.error{
   border-color: rgba(255, 0, 0, 0.678);
   font-weight: bold;
 }
 
+
+
+  /*-----------------------*/
+ /*    media queries      */
 /*-----------------------*/
-/*    media queries      */
-/*-----------------------*/
+
 @media only screen and (min-width: 1024px) {
-  .tweeter-display {
+  .tweeter-display{
     display: flex;
     /* align-items: center; */
   }
+
 }
