@@ -85,31 +85,21 @@ $(() => {
 
   //fetches and renders tweets dependent on query string value
   const loadTweets = (query) => {
-    
-    //renders all tweets
-    if (query === "all") {
-      $.get('/tweets')
-        .then((tweets)=>{
-          console.log('All tweets: ', tweets);
-          renderTweets(tweets);
-        })
-        .fail(() => {
-          console.log("Failed to grab all tweets.");
-        });
-    }
+    $.get('/tweets')
+    .then((tweets)=>{
+      if(query === "all"){
+        return renderTweets(tweets);
+      }
 
-    //renders the latest tweet
-    if (query === "last") {
-      $.get('/tweets')
-        .then((tweets) => {
-          let latestTweet = tweets[tweets.length - 1];
-          console.log('Latest Tweet: ', latestTweet);
-          renderTweets([latestTweet]);
-        })
-        .fail(() => {
-          console.log("Failed to grab lastest tweet.");
-        });
-    }
+      if(query === "last"){ 
+        let latestTweet = tweets[tweets.length - 1];
+        renderTweets([latestTweet]);
+      }
+    })
+    .fail(() => {
+      console.log("Failed to grab all tweets.");
+    });
+
 
   };
 
@@ -143,7 +133,6 @@ $(() => {
         errorDisplay.hide();
         textArea.val("");
         $(".counter").html("140");
-        console.log("tweeted message: ", message);
         loadTweets("last");
       })
       .fail(()=>{
