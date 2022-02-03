@@ -1,10 +1,13 @@
+@import "./variables.scss";
+
+
 header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #d79923;
+  background-color: $secondary-theme-color;
   background-image: url("../images/header-background.png");
-  color: white;
+  color: $font-color1;
   height: 400px;
   width: 100%;
   margin-top: 120px;

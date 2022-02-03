@@ -1,3 +1,6 @@
+@import "./variables.scss";
+
+
 .tweets-container{
   box-sizing: border-box;
   margin-top: 1.5em;
@@ -71,7 +74,7 @@
 
   i{
     margin-left: 0.3em;
-    color: #4056A1;
+    color: $theme-color;
     cursor: pointer;
   }
 }
@@ -87,5 +90,5 @@
 }
 
 .message-information i:hover{
-  color: #d79923;
+  color: $secondary-theme-color;
 }

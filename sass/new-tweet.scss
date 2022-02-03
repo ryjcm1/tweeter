@@ -1,3 +1,6 @@
+@import "./variables.scss";
+
+
 .error-message{
   font-size: 0.8em;
   padding: 12px;
@@ -31,8 +34,8 @@
     border: none;
     cursor: pointer;
     font-size: 1.2rem;
-    background-color: #4056A1;
-    color: #FFFFFF;
+    background-color: $theme-color;
+    color: $font-color1;
   }
     
 }

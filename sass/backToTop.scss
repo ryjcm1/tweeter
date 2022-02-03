@@ -1,3 +1,6 @@
+@import "./variables.scss";
+
+
 .back-to-top{
   position: fixed;
   background: rgb(253, 34, 34);
@@ -13,7 +16,7 @@
 
   i{
     font-size: 1.3em;
-    color: #FFFFFF;
+    color: $font-color1;
   }
 
 }
