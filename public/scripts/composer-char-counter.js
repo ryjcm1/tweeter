@@ -4,16 +4,18 @@ $(() => {
   $("#tweet-text").on("input",function() {
     let charCount = 140 - $(this).val().length;
     let charCountDisplay = $(this).parent().children(".tweet-submit").children(".counter");
+    
+    //assigns counter value
+    charCountDisplay.html(charCount);
 
     //adds class to change text colour when over character limit
     if (charCount < 0) {
-      charCountDisplay.addClass("danger");
-    } else {
-      charCountDisplay.removeClass("danger");
+      return charCountDisplay.addClass("danger");
     }
 
-    //assigns counter value
-    charCountDisplay.html(charCount);
+    return charCountDisplay.removeClass("danger");
+    
+
   });
 
 
